@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 180 100% 90%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 180 100% 90%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 180 100% 90%;
+
+    --primary: 189 94% 43%;
+    --primary-foreground: 222 47% 5%;
+
+    --secondary: 200 98% 39%;
+    --secondary-foreground: 180 100% 90%;
+
+    --muted: 222 35% 15%;
+    --muted-foreground: 180 20% 60%;
+
+    --accent: 270 80% 60%;
+    --accent-foreground: 180 100% 90%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 180 100% 90%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 189 94% 43%;
+
+    --radius: 0.75rem;
+    
+    /* Custom tokens for glassmorphism and effects */
+    --glass-background: 222 47% 10%;
+    --glass-border: 189 94% 43%;
+    --neon-glow: 189 94% 43%;
+    --step-highlight: 270 80% 60%;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 180 100% 90%;
+    --sidebar-primary: 189 94% 43%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 222 35% 15%;
+    --sidebar-accent-foreground: 180 100% 90%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 189 94% 43%;
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 180 100% 90%;
+    --card: 222 47% 8%;
+    --card-foreground: 180 100% 90%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 180 100% 90%;
+    --primary: 189 94% 43%;
+    --primary-foreground: 222 47% 5%;
+    --secondary: 200 98% 39%;
+    --secondary-foreground: 180 100% 90%;
+    --muted: 222 35% 15%;
+    --muted-foreground: 180 20% 60%;
+    --accent: 270 80% 60%;
+    --accent-foreground: 180 100% 90%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 180 100% 90%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 189 94% 43%;
+    --glass-background: 222 47% 10%;
+    --glass-border: 189 94% 43%;
+    --neon-glow: 189 94% 43%;
+    --step-highlight: 270 80% 60%;
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 180 100% 90%;
+    --sidebar-primary: 189 94% 43%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 222 35% 15%;
+    --sidebar-accent-foreground: 180 100% 90%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 189 94% 43%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/40 backdrop-blur-xl border border-primary/20 shadow-lg shadow-primary/10;
+  }
+  
+  .neon-glow {
+    box-shadow: 0 0 20px hsl(var(--neon-glow) / 0.5),
+                0 0 40px hsl(var(--neon-glow) / 0.3);
+  }
+  
+  .result-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 10px hsl(var(--neon-glow) / 0.4),
+                  0 0 20px hsl(var(--neon-glow) / 0.3),
+                  0 0 30px hsl(var(--neon-glow) / 0.2);
+    }
+    to {
+      box-shadow: 0 0 20px hsl(var(--neon-glow) / 0.6),
+                  0 0 30px hsl(var(--neon-glow) / 0.4),
+                  0 0 40px hsl(var(--neon-glow) / 0.3);
+    }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+  }
+  
+  .shake {
+    animation: shake 0.4s ease-in-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .slide-down {
+    animation: slideDown 0.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  @keyframes pulse-scale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  .pulse-scale {
+    animation: pulse-scale 0.3s ease-in-out;
+  }
+}

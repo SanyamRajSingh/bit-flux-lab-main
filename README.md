@@ -1,116 +1,92 @@
-# 🧠 BinaryGrayify
-### *Binary ↔ Gray Code Converter*
+# 🚀 BinaryGrayify
 
-A simple yet efficient web application that converts **Binary to Gray Code** and **Gray Code to Binary** instantly.  
-Built using **HTML, CSS, and JavaScript**, this project is perfect for understanding how Gray code works and for quick conversions while studying digital electronics or computer architecture.
-
----
-
-## 🚀 Features
-- 🔄 **Two-way conversion**:  
-  Convert **Binary → Gray** and **Gray → Binary**.  
-- ⚡ **Instant results**:  
-  Real-time conversion on input.  
-- 🧮 **Error handling**:  
-  Detects invalid binary or gray input.  
-- 💻 **Lightweight & fast**:  
-  Runs entirely in the browser — no backend required.  
-- 🎨 **Clean UI**:  
-  Simple and intuitive interface for quick testing.
+**BinaryGrayify** is a sleek and interactive web app built using **React.js** that allows users to easily **convert between Binary and Gray codes**.  
+It provides an intuitive interface, real-time conversion, and educational value for digital electronics enthusiasts and learners.
 
 ---
 
-## 🧩 What is Gray Code?
-Gray code is a **binary numeral system** where two successive values differ in only **one bit**.  
-It’s widely used in **digital encoders**, **communication systems**, and **error-minimized hardware transitions**.
-
-### 🧠 Conversion Rules
-- **Binary → Gray Code**  
-  - The **most significant bit (MSB)** of the Gray code = MSB of binary.  
-  - Every next Gray bit = XOR of the previous binary bit and the current binary bit.  
-
-  Example:  
-  Binary: `1011` → Gray: `1110`  
-
-- **Gray → Binary**  
-  - The **MSB** of binary = MSB of Gray.  
-  - Every next binary bit = XOR of the previous binary bit and the current Gray bit.  
-
-  Example:  
-  Gray: `1110` → Binary: `1011`
+## 🎯 Project Overview
+BinaryGrayify helps users understand and perform conversions between **binary** and **Gray codes**, which are essential in **digital communication systems** and **error minimization**.  
+The app instantly converts input as you type, offering a smooth, modern, and visually appealing experience.
 
 ---
 
-## 🧠 How It Works
-Internally, the app:
-1. Reads the input string.  
-2. Validates that it contains only `0` and `1`.  
-3. Uses **bitwise XOR (`^`)** operations to perform conversions.  
-4. Displays the output instantly in the corresponding text field.
+## 🧠 Features
+- 🔄 Convert **Binary → Gray Code** and **Gray → Binary**  
+- ⚡ Instant real-time conversion  
+- ✅ Input validation for correct binary format  
+- 🎨 Minimal, responsive UI built with React  
+- 🧩 Easy-to-understand logic and open-source  
 
 ---
 
-## 📂 Project Structure
+## ⚙️ Tech Stack
+
+| Layer | Technology | Purpose |
+|-------|-------------|----------|
+| Frontend Framework | **React.js (with JSX)** | Component-based UI rendering |
+| Styling | **CSS3 / Tailwind CSS (optional)** | Clean, responsive UI |
+| Logic | **JavaScript (ES6)** | Conversion algorithms & interactivity |
+| Build Tool | **Vite** | Fast development & optimized builds |
+| Structure | **HTML (via JSX)** | Layout definition inside components |
+| Version Control | **Git & GitHub** | Collaboration and hosting |
+
+---
+
+## 🧩 Core Logic
+
+### 🔹 Binary → Gray Code
+```js
+const binaryToGray = (binary) => {
+  let gray = parseInt(binary, 2) ^ (parseInt(binary, 2) >> 1);
+  return gray.toString(2).padStart(binary.length, '0');
+};
 ```
-bit-flux-lab-main/
-│
-├── index.html        → Main webpage
-├── style.css         → Styling for UI
-├── script.js         → Core logic (conversion functions)
-└── README.md         → Project documentation
+
+### 🔹 Gray Code → Binary
+```js
+const grayToBinary = (gray) => {
+  let binary = gray[0];
+  for (let i = 1; i < gray.length; i++) {
+    binary += (binary[i - 1] ^ gray[i]).toString();
+  }
+  return binary;
+};
 ```
 
 ---
 
-## ⚙️ Usage
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/SanyamRajSingh/bit-flux-lab-main.git
-   cd bit-flux-lab-main
-   ```
-2. **Open the App**
-   - Double-click `index.html` or  
-   - Serve it locally:
-     ```bash
-     npx live-server
-     ```
-3. **Enter a number** in either Binary or Gray input field.  
-4. The converted value will appear automatically.
+## 🖥️ Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/SanyamRajSingh/BinaryGrayify.git
+
+# Navigate to the project directory
+cd BinaryGrayify
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+Then open the link provided by Vite (usually `http://localhost:5173/`).
 
 ---
 
-## 🧮 Example Conversions
-
-| Binary | Gray Code |
-|:------:|:----------:|
-| 0000 | 0000 |
-| 0001 | 0001 |
-| 0010 | 0011 |
-| 0011 | 0010 |
-| 0100 | 0110 |
-| 0101 | 0111 |
-| 0110 | 0101 |
-| 0111 | 0100 |
+## 🧾 Educational Insight
+**Binary and Gray codes** are essential in **digital systems** for minimizing transition errors.  
+BinaryGrayify visually demonstrates these conversions, making it an excellent learning tool for electronics, logic design, and computer science students.
 
 ---
 
-## 🧰 Technologies Used
-- **HTML5**
-- **CSS3**
-- **JavaScript (ES6)**
-
----
-
-## 💡 Future Improvements
-- Dark/light theme toggle  
-- Copy-to-clipboard button  
-- Binary ↔ Decimal ↔ Gray three-way converter    
+## 🧑‍💻 Contributing
+Contributions are always welcome!  
+Feel free to fork the repo, submit issues, or create pull requests.
 
 ---
 
 ## 📜 License
-This project is open-source under the **MIT License**.  
-Feel free to fork, modify, and use it for educational or project purposes.
-
----
-
+This project is licensed under the **MIT License** — free to use, modify, and distribute.

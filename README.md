@@ -1,4 +1,4 @@
-# 🧠 Bit-Flux Lab
+# 🧠 BinaryGrayify
 ### *Binary ↔ Gray Code Converter*
 
 A simple yet efficient web application that converts **Binary to Gray Code** and **Gray Code to Binary** instantly.  
